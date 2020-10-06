@@ -10,9 +10,7 @@ app.get('/', (req, res) => {
     res.send('Welcome' + JSON.stringify(user.getUser()));
 });
 
-app.listen(port, err => {
-    if(err) {
-        return console.error(err);
-    }
-    return console.log(`Server listening on PORT: ${port}`);
+
+app.listen(port).once("listening", () => {
+    console.log("Server started on PORT", port);
 })
